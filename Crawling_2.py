@@ -16,7 +16,7 @@ plusUrl=input('검색어를 입력하세요 : ')
 url=baseurl+urllib.parse.quote_plus(plusUrl) #urllib을 통해 한글 검색부분을 알맞게 변환하여(코드로) 출력
 
 
-html=urllib.request.urlopen(url).read() 
+html=urllib.request.urlopen(url).read() #.read를 통해 HTML코드 출력
 
 soup = BeautifulSoup(html,'html.parser') 
 
@@ -24,12 +24,13 @@ soup = BeautifulSoup(html,'html.parser')
 
 title=soup.find_all(class_='sh_blog_title') 
 
+print(title)
 
 
-for i in title:
-    print(i.attrs['title'])  
-    print(i.attrs['href'])
-    print()
+# for i in title:
+#     print(i.attrs['title'])  
+#     print(i.attrs['href'])
+#     print()
 
 
 
