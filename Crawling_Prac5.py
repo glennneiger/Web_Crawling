@@ -15,8 +15,11 @@ step1=bs_obj.select('div.list_body.newsflash_body > ul > li > dl > dt > a')
 #     print(step.get('href'))
 count=0
 
-print(step1)
+# print(step1)
+
 for step in step1:
-    print(step.text.strip()) #텍스트 부분을 출력후 ,strip 으로 없앤 부분 공백 제거
+    # print(step.text.strip()) #텍스트 부분을 출력후 ,strip 으로 없앤 부분 공백 제거
    
     print(step.get('href'))
+
+    #리스트에넣고 1 3 5 번 순으로 출력해볼까
