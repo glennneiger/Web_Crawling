@@ -19,7 +19,7 @@ soup=BeautifulSoup(html,'html.parser')
 
 
 
-Title=soup.select('div.content > div.list_body.newsflash_body > ul > li > dl > dt:nth-child(2) > a')
+Title=soup.select('div.content > div.list_body.newsflash_body > ul > li > dl > dt:nth-child(2)')
 
 
 
@@ -31,7 +31,7 @@ for a in Title:
     
     print(a.text.strip())
 
-    print(a.get('href'))
+    print(a.find('a')['href'])
 
    
 
