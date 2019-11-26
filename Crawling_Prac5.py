@@ -7,19 +7,19 @@ url='https://news.naver.com/main/list.nhn?mode=LS2D&sid2=230&sid1=105&mid=shm&da
 html=urllib.request.urlopen(url).read() 
 
 bs_obj = BeautifulSoup(html,'html.parser') 
-step1=bs_obj.select('div.list_body.newsflash_body > ul > li > dl > dt > a')
+step1=bs_obj.select('div.list_body.newsflash_body > ul > li > dl ')
 
-# print(step1)
-# for step in step1:
-#     # print(step.text.strip()) #텍스트 부분을 출력후 ,strip 으로 없앤 부분 공백 제거
-#     print(step.get('href'))
 count=0
 
-# print(step1)
+
+
+
 
 for step in step1:
-    # print(step.text.strip()) #텍스트 부분을 출력후 ,strip 으로 없앤 부분 공백 제거
-   
-    print(step.get('href'))
+    a = step.find_all('a')
 
-    #리스트에넣고 1 3 5 번 순으로 출력해볼까
+    for b in a: #for문으로 차례로 출력
+        print(b.text.strip())
+        
+    if (len(a) > 0):
+        print(a[0].get("href"))
