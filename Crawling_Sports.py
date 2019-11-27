@@ -5,31 +5,23 @@ import json
 
 from bs4 import BeautifulSoup
 
-# Baseurl='https://sports.news.naver.com/wfootball/news/index.nhn?isphoto=N&page='
-
-# headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36'}
-
-# page=input('페이지 : ')
-# print()
-
-
-# Url=Baseurl+page
-# html=requests.get(Url,headers=headers).text
-# soup=BeautifulSoup(html,'html.parser')
-
-
-
-
-# Title=soup.select('div.content')
-
-# print(Title)
+# https://beomi.github.io/2017/01/20/HowToMakeWebCrawler-With-Login/   참고
 
 sess = requests.session()
-req_url = 'https://sports.news.naver.com/wfootball/news/list.nhn?page=1&isphoto=N&view=photo'
-req2 = sess.get(req_url,headers={'user-agent':'nvsch'})
-print(req2.content.decode())
-j_res = json.loads(req2.content.decode())
-print(j_res)
 
+
+req_url = 'https://sports.news.naver.com/wfootball/news/list.nhn?page=1&isphoto=N&view=photo'
+
+#html 소스가져오기
+req2 = sess.get(req_url,headers={'user-agent':'nvsch'})
+
+
+#req2라는 바이트배열을 디코딩하여 문자열데이터로 변환 , 그걸 loads
+j_res = json.loads(req2.content.decode()) 
+
+
+
+for number,step in enumerate(j_res['list'],1):
+    print(number," : ",step['title'])
 
 
