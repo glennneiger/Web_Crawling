@@ -7,29 +7,33 @@ url='https://news.naver.com/main/list.nhn?mode=LS2D&sid2=230&sid1=105&mid=shm&da
 html=urllib.request.urlopen(url).read() 
 
 bs_obj = BeautifulSoup(html,'html.parser') 
-step1=bs_obj.select('div.list_body.newsflash_body > ul > li > dl > dt > a')
+step1=bs_obj.select('div.list_body.newsflash_body > ul > li > dl')
 
-# print(step1)
-# for step in step1:
-#     # print(step.text.strip()) #텍스트 부분을 출력후 ,strip 으로 없앤 부분 공백 제거
-#     print(step.get('href'))
+a=[]
 
-
-
-result=[]
-
-for i in step1:
-    result.append(i)
+for step in step1:
+    a = step.find_all('a') # 리스트 a 에다가 step1 하위에 속한 태그 a 값들을 넣고
     
-print(result[0])
-print()
-print()
-print(result[1])
+    
 
 
-# for step in step1:
-#     # print(step.text.strip()) #텍스트 부분을 출력후 ,strip 으로 없앤 부분 공백 제거
+
+    for b in a: #for문으로 차례로 출력
+        print(b.text.strip())
+        
+      
+
+    if(len(a)>0):        
+        print(a[0].get('href'))
+
    
-#     print(step.get('href'))
+# for b in a:
+        
+#         print(len(b))
+#         print(type(b))
+#         print(len(a))
+#         print(type(a))
 
-#     #리스트에넣고 1 3 5 번 순으로 출력해볼까
+#         print()
+#         print()
+
