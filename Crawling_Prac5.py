@@ -7,6 +7,7 @@ url='https://news.naver.com/main/list.nhn?mode=LS2D&sid2=230&sid1=105&mid=shm&da
 html=urllib.request.urlopen(url).read() 
 
 bs_obj = BeautifulSoup(html,'html.parser') 
+<<<<<<< HEAD
 step1=bs_obj.select('div.list_body.newsflash_body > ul > li > dl')
 
 a=[]
@@ -27,13 +28,5 @@ for step in step1:
         print(a[0].get('href'))
 
    
-# for b in a:
-        
-#         print(len(b))
-#         print(type(b))
-#         print(len(a))
-#         print(type(a))
 
-#         print()
-#         print()
 
