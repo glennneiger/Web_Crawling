@@ -20,7 +20,7 @@ title=soup.select('#_ranking_news_list_0 span')
 
 print(title)
 
-for i, out in enumerate(title,1):
+for i, out in enumerate(title,1): #맨오른쪽의 1은 1부터 시작하라는 뜻
     print(i, out.text)
 
 
