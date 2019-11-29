@@ -10,7 +10,10 @@ from bs4 import BeautifulSoup
 sess = requests.session()
 
 
-req_url = 'https://sports.news.naver.com/wfootball/news/list.nhn?page=1&isphoto=N&view=photo'
+
+req_url = 'https://sports.news.naver.com/wfootball/news/list.nhn?page=1&isphoto=N&view'
+
+#f12 네트워크 기록후에 , 컨트롤 에프로 기사제목 검색하면 하나뜸, 그리고 그것의 header찾기
 
 #html 소스가져오기
 req2 = sess.get(req_url,headers={'user-agent':'nvsch'})
