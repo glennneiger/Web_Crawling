@@ -107,51 +107,58 @@ for i in range(len(Cd)):
 
 
 
-InputComment = input("찾고자하는 댓글(찾고자 하는 내용이 없을 경우 종료) : ")
-print()
-print()
 
-Find_Number=[]
+while True:
 
-for i in Odd_List:
+
+    InputComment = input("찾고자하는 댓글(종료를 원할경우   ***종료***  라고 입력하세요.) : ")
+    print()
+    print()
     
-    temp=str(i)
+    if InputComment=="***종료***":
+        break
 
-    if temp.find(InputComment)>=0:
+    Find_Number=[]
+
+    for i in Odd_List:
         
-        Save_Comment_Index=Cd.index(temp)
+        temp=str(i)
 
-        Find_Number.append(str(Save_Comment_Index))
+        if temp.find(InputComment)>=0:
+            
+            Save_Comment_Index=Cd.index(temp)
 
-# print(Odd_List)
+            Find_Number.append(str(Save_Comment_Index))
 
-##########################################################################
-#찾은 결과를 Result_Comment 리스트에 [아이디 1 , 내용 , 아이디 2 , 내용 ,,,,] 이렇게 담는다.
-Result_Comment=[]
+    # print(Odd_List)
 
-for i in Find_Number:
+    ##########################################################################
+    #찾은 결과를 Result_Comment 리스트에 [아이디 1 , 내용 , 아이디 2 , 내용 ,,,,] 이렇게 담는다.
+    Result_Comment=[]
+
+    for i in Find_Number:
+        
+        A=int(i)
+        A_1=int((A-1)/2)
+        Result_Comment.append(Id_list[A_1]) ##
+
+        B=str(Contents_list[A_1])
+        B=B.replace('\n','')
+        
+        Result_Comment.append(B)
+
+    ################################################################################
+    #결과 도출
+    Result_Number=1
+
+    for number in range(len(Result_Comment)):
+
+        
+
+        if number%2==0:
+            print(str(Result_Number) , ".   [ " + Result_Comment[number] + " ] ,  작성내용 -> [ " + Result_Comment[number+1]+ " ]")
+            print()
+            print()
+            Result_Number+=1
+
     
-    A=int(i)
-    A_1=int((A-1)/2)
-    Result_Comment.append(Id_list[A_1]) ##
-
-    B=str(Contents_list[A_1])
-    B=B.replace('\n','')
-    
-    Result_Comment.append(B)
-
-################################################################################
-#결과 도출
-Result_Number=1
-
-for number in range(len(Result_Comment)):
-
-    
-
-    if number%2==0:
-        print(str(Result_Number) , ".   [ " + Result_Comment[number] + " ] ,  작성내용 -> [ " + Result_Comment[number+1]+ " ]")
-        print()
-        print()
-        Result_Number+=1
-
-   
